@@ -1,1 +1,2 @@
-This is some text, cool huh?
+This site is designed to teach you about Cucumber, Watir, and Ruby.
+I hope you enjoy it. Leave us a note if you have an idea to make it better. We love improving!

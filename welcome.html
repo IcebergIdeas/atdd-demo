@@ -16,7 +16,7 @@
 			{
 				if (xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
-					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+					document.getElementById("infoBox").innerHTML=xmlhttp.responseText;
 				}
 			}
 			xmlhttp.open("GET","data.txt?rnd=" + Math.random() ,true);
@@ -44,11 +44,12 @@
 		</ul>
 		</div>
 		<div class="large-8 column">
-		Welcome to the ATDD Demo site. This site is designed to teach you about Cucumber, Watir, and Ruby.<br/>
-		I hope you enjoy it. Leave us a note if you have an idea to make it better. We love improving!
-			<div id="myDiv"><h2>update this text from another file</h2></div>
+			<h2>Welcome to the ATDD Demo site.</h2>
+
+			<div id="infoBox" class="panel"></div>
+
 			<div>
-				<span class="button" onclick="loadXMLDoc()">Click Me!</span>
+				<span class="button" onclick="loadXMLDoc()">Import</span>
 
 			</div>
 			<div>
