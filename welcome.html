@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>ATDD test - Welcome Page</title>
+	<link rel="stylesheet" href="css/foundation.css" />
+	<link rel="stylesheet" href="css/app.css" />
+    <script src="js/vendor/modernizr.js"></script>
+	<script>
+		function loadXMLDoc()
+		{
+			var xmlhttp;
+			xmlhttp=new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("GET","data.txt?rnd=" + Math.random() ,true);
+			xmlhttp.send();
+		}
+	</script>
+</head>
+<body>
+	<div class="row">
+		<div class="large-12 columns">
+		<h1>ATDD Demo Site</h1>
+		</div>
+		You are now logged in!
+	</div>
+	<div class="row">
+	<a href="#" data-reveal-id="myModal">Looking for a book?</a>
+	</div>
+	<div class="row">
+		<div class="large-2 column">
+		<ul class="side-nav nav-extra">
+		<li><a href="welcome.html">Welcome</a></li>
+		<li><a href="search.html">Search</a></li>
+		<li><a href="#">TBD</a></li>
+		<li><a href="logout.html">Logout</a></li>
+		</ul>
+		</div>
+		<div class="large-8 column">
+		Welcome to the ATDD Demo site. This site is designed to teach you about Cucumber, Watir, and Ruby.<br/>
+		I hope you enjoy it. Leave us a note if you have an idea to make it better. We love improving!
+			<div id="myDiv"><h2>update this text from another file</h2></div>
+			<div>
+				<span class="button" onclick="loadXMLDoc()">Click Me!</span>
+
+			</div>
+			<div>
+				<span></span>
+			</div>
+
+	</div>
+
+	<!--<div id="myModal" class="reveal-modal" data-reveal>-->
+	  <!--<h2>Hey! You should check out Cucumber &amp; Cheese</h2>-->
+	  <!--<p class="lead">It's a great book'</p>-->
+	  <!--<p>The book will teach you how to put it all together. It's written by Jeff 'Cheezy' Morgan</p>-->
+	  <!--<a class="close-reveal-modal">&#215;</a>-->
+	<!--</div>-->
+</div>
+</body>
+</html>
