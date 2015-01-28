@@ -16,7 +16,6 @@ When(/^I select the Kings$/) do
   sleep 5
 end
 
-
 Then(/^I don't see the Rangers stats$/) do
   expect(@browser.text.include? 'Rangers Stats').to be(false)
 end

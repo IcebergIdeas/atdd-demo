@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATDD test - Search Page</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script>
+        function loadXMLDoc()
+        {
+            var categoryList = [];
+            if (checkBox1.checked == 1) categoryList.push("testing");
+            if (checkBox2.checked == 1) categoryList.push("development");
+            if (checkBox3.checked == 1) categoryList.push("management");
+
+            var xmlhttp;
+            var tableData = "";
+            var bookList, bookItem, bookCategory;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function()
+            {
+                function addElement(item) {
+                    bookItem = bookList[i].getElementsByTagName(item);
+                    try {
+                        tableData += "<td>" + bookItem[0].firstChild.nodeValue + "</td>";
+                    }
+                    catch (er) {
+                        tableData += "<td>&nbsp;</td>";
+                    }
+                }
+
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    tableData += "<table><thead><th>Title</th><th>Author</th><th>Quantity</th><th>Price</th><th>Category</th></tr></thead>";
+                    // sort through table to show elements that match
+                    // if no check boxes set then display all
+                    bookList = xmlhttp.responseXML.documentElement.getElementsByTagName("book");
+                    for (var i=0; i < bookList.length; i++) {
+                        bookCategory = bookList[i].getElementsByTagName("category")[0].firstChild.nodeValue;
+                        if (categoryList.indexOf(bookCategory.toLowerCase()) > -1) {
+                            tableData += "<tr>";
+                            addElement("title");
+                            addElement("author");
+                            addElement("quantity");
+                            addElement("price");
+                            addElement("category");
+                            tableData += "</tr>";
+                            }
+                    }
+                    tableData += "</table>";
+                    document.getElementById("bookList").innerHTML = tableData;
+                }
+            }
+            xmlhttp.open("GET","books.xml",true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+<div class="row">
+    <div class="large-12 columns">
+        <h1>ATDD Demo Site</h1>
+    </div>
+"An interesting quote..."
+</div>
+<div class="row">
+    <div class="large-2 column">
+        <ul class="side-nav nav-extra">
+            <li><a href="welcome.html">Welcome</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="#">TBD</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </div>
+    <div class="large-8 column">
+        <div class="row">
+            <form>
+                <input type="checkbox" onclick="loadXMLDoc()" id="checkBox1" value="testing"/><label for="checkBox1">Agile Testing</label>
+                <input type="checkbox" onclick="loadXMLDoc()" id="checkBox2" value="development"/><label for="checkBox2">Agile Development</label>
+                <input type="checkbox" onclick="loadXMLDoc()" id="checkBox3" value="management"/><label for="checkBox3">Management</label>
+            </form>
+        </div>
+        <h2>Here are your search results:</h2>
+        <div id="bookList"></div>
+    </div>
+</div>
+</body>
+</html>

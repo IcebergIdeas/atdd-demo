@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <list>
+  <book id="book1">
+    <title>Clean Code</title>
+    <author>Robert C. Martin</author>
+    <quantity>23</quantity>
+    <price>$33.46</price>
+    <category>Development</category>
+  </book>
+
+  <book id="book2">
+    <title>Agile Testing</title>
+    <author>Lisa Crispin, Janet Gregory</author>
+    <quantity>12</quantity>
+    <price>$47.23</price>
+    <category>Testing</category>
+  </book>
+
+  <book id="book3">
+    <title>The Goal</title>
+    <author>Eliyahu M. Goldratt</author>
+    <quantity>19</quantity>
+    <price>$18.84</price>
+    <category>Management</category>
+  </book>
+
+  <book id="book4">
+    <title>The Wisdom of Teams</title>
+    <author>Jon R. Katzenbach, Douglas K. Smith</author>
+    <quantity>0</quantity>
+    <price>$15.60</price>
+    <category>Management</category>
+  </book>
+
+  <book id="book5">
+    <title>More Agile Testing</title>
+    <author>Lisa Crispin, Janet Gregory</author>
+    <quantity>15</quantity>
+    <price>$39.95</price>
+    <category>Testing</category>
+  </book>
+
+  <book id="book6">
+    <title>Refactoring</title>
+    <author>Martin Fowler</author>
+    <quantity>37</quantity>
+    <price>$44.67</price>
+    <category>Development</category>
+  </book>
+</list>
