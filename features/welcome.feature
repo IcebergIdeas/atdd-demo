@@ -7,7 +7,7 @@ Feature:
 #    Given I am on the welcome page
 
 
-    Scenario: Advertisement Window Appears
-      Given I am on the welcome page
-      When I select Looking for a Book
-      Then I should see the Cucumber and Cheese book message
+  Scenario: Advertisement Window Appears
+    Given I am on the welcome page
+    When I select Looking for a Book
+    Then I should see the Cucumber and Cheese book message
